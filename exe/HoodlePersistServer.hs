@@ -12,18 +12,21 @@
 
 module Main where 
 
--- import System.Environment
+-- 
 import Data.Acid
 import Data.Acid.Remote
 import Network
+import System.Directory
 -- 
 import Hoodle.Persist.Types 
 
 
 main :: IO () 
 main = do 
-  acid <- openLocalState (HoodlePersistState "Hello World")
+  homedir <- getHomeDirectory 
+  acid <- openLocalState (HoodlePersistState homedir)
   acidServer acid (UnixSocket "hoodle-persist")
+
 {-          args <- getArgs
           if null args 
              then do p <- query acid QueryState 
