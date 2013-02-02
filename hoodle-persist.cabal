@@ -1,0 +1,52 @@
+Name:		hoodle-persist
+Version:	0.0.999
+Synopsis:	persistent state server for hoodle program 
+Description:    persistent state server for hoodle program 
+License: 	BSD3
+License-file:	LICENSE
+Author:		Ian-Woo Kim
+Maintainer: 	Ian-Woo Kim <ianwookim@gmail.com>
+Category:       Hoodle
+Build-Type: 	Simple
+Cabal-Version:  >= 1.8
+data-files:     CHANGES
+Source-repository head
+  type: git
+  location: https://www.github.com/wavewave/hoodle-persist
+
+
+Executable HoodlePersistServer
+  Main-is: HoodlePersistServer.hs
+  hs-source-dirs: exe
+  ghc-options: 	-Wall -threaded -funbox-strict-fields -fno-warn-unused-do-bind
+  ghc-prof-options: -caf-all -auto-all
+  Build-Depends: 
+                   base == 4.*, 
+                   mtl >= 2, 
+                   acid-state >=0.8, 
+                   safecopy >= 0.6,
+                   network >= 2.3, 
+                   directory, 
+                   hoodle-persist
+
+Library
+  hs-source-dirs: src
+  ghc-options: 	-Wall -funbox-strict-fields -fno-warn-unused-do-bind -fno-warn-orphans
+  ghc-prof-options: -caf-all -auto-all
+  Build-Depends: 
+                   base == 4.*, 
+                   mtl >= 2, 
+                   acid-state >=0.8, 
+                   -- scotty >= 0.4, 
+                   safecopy >= 0.6,
+                   filepath, 
+                   directory
+  Exposed-Modules: 
+                   Hoodle.Persist
+                   Hoodle.Persist.Types 
+
+  Other-Modules: 
+
+
+ 
+		 
