@@ -14,7 +14,7 @@
 
 module Hoodle.Persist where
 
-import Data.Acid 
+{- import Data.Acid 
 import Data.Monoid (mconcat)
 import Web.Scotty 
 
@@ -24,3 +24,4 @@ startServer = scotty 7373 $ do
       beam <- param "word" 
       html $ mconcat ["<h1>Scotty, ", beam, " me up!</h1>"]
 
+-}
